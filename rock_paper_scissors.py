@@ -20,20 +20,25 @@ def game_user1(game_mode, point):
     player2 = ""
     computer = ""
     point = 0
+    running = True
 
-    while True or point == 3:
+    if game_mode == "1":
 
-        if point == 3:
-           print("Game End !!!!!!!!!!3")
-           print("Total points ", point)
-           if helper.play_again("do you wanto play again"):
-               main()
+        while running:
 
-        if game_mode == "1":
+            if point == 3:
+                print("Game End !!!!!!!!!!3")
+                print("Total points ", point)
+                helper.play_again("do you wanto play again")
+                main()
+
             helper.discription()
+
             player1 = input("input s, p, r      >>> ")
+
             if player1 == "!":
                 exit()
+
             computer = helper.random(options)
             print("Total points ", point)
             player1 = helper.cheak_valid_input(player1)
@@ -43,23 +48,64 @@ def game_user1(game_mode, point):
                 print("Player 1 Input    >>> ", player1)
                 print("Computer Input    >>> ", computer)
                 print("your and computer input matched")
+                print("Total points ", point)
+                continue
+            elif player1 == "r" and computer == "s":
+                print("Player 1 Input    >>> ", player1)
+                print("Computer Input    >>> ", computer)
+                print("You win!")
                 point += 1
                 print("Total points ", point)
                 continue
-            else:
-                print("Total points ", point)
-                print("Player 1 Input    >>> ", player1)
-                print("Player 1 Input    >>> ", computer)
 
+            elif player1 == "p" and computer == "r":
+                print("Player 1 Input    >>> ", player1)
+                print("computer Input >> > ", computer)
+                print("player1 win")
+                point += 1
+                print("Total points ", point)
                 continue
 
-        elif game_mode == "2":
+            elif player1 == "s" and computer == "p":
+                print("Player 1 Input    >>> ", player1)
+                print("computer Input    >>> ", computer)
+                print("player1 win")
+                point += 1
+                print("Total points ", point)
+                continue
+
+            else:
+
+                print("Player 1 Input    >>> ", player1)
+                print("computer Input    >>> ", computer)
+                print("you lose!")
+                print("Total points ", point)
+                continue
+
+    elif game_mode == "2":
+
+        while running:
+
+            if point == 3:
+                print("Game End !!!!!!!!!!3")
+                print("Total points ", point)
+                helper.play_again("do you wanto play again")
+                main()
+
+            helper.discription()
+            player1 = input("input s, p, r      >>> ")
+            if player1 == "!":
+                exit()
+            computer = helper.random(options)
+            print("Total points ", point)
+            player1 = helper.cheak_valid_input(player1)
 
             helper.discription()
             player1 = input("input s, p, r      >>> ")
             player2 = input("input s, p, r      >>> ")
             player1 = helper.cheak_valid_input(player1)
             player2 = helper.cheak_valid_input(player2)
+
             if player1 == "!" or player2 == "!":
                 exit()
 
@@ -70,18 +116,67 @@ def game_user1(game_mode, point):
                 print("Player 1 Input    >>> ", player1)
                 print("Player 2 Input    >>> ", player2)
                 print("your and Player 2 input matched")
+                #point += 1
+                print("Total points ", point)
+                continue
+            elif player1 == "r" and player2 == "s":
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("player1 win")
                 point += 1
                 print("Total points ", point)
                 continue
-            else:
-                print("Total points ", point)
-                print("<<<< Player 1 Input >>>> ", player1)
-                print("<<<< Player 2 Input >>>> ", player2)
 
+            elif player1 == "s" and player2 == "r":
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("player2 win")
+                point += 1
+                print("Total points ", point)
                 continue
 
+            elif player1 == "p" and player2 == "r":
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("player1 win")
+                point += 1
+                print("Total points ", point)
+                continue
+
+            elif player1 == "r" and player2 == "p":
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("player2 win")
+                point += 1
+                print("Total points ", point)
+                continue
+
+            elif player1 == "s" and player2 == "p":
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("player1 win")
+                point += 1
+                print("Total points ", point)
+                continue
+
+            elif player1 == "p" and player2 == "s":
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("player2 win")
+                point += 1
+                print("Total points ", point)
+                continue
+
+            else:
+
+                print("Player 1 Input    >>> ", player1)
+                print("Player 2 Input    >>> ", player2)
+                print("you lose!")
+                print("Total points ", point)
+                break
+
         print("Total points    >> ", point)
-        return
+        return point
 
 
 def main():
